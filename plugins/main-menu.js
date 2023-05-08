@@ -15,10 +15,10 @@ let tags = {
 
 const defaultMenu = {
 	before: `
-	%name
+	Halo, %name
 	%readmore`.trimStart(),
 	header: '*%category*',
-	body: '%cmd',
+	body: '> %cmd',
 	footer: '',
 	after: ``,
 }
