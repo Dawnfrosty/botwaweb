@@ -16,9 +16,9 @@ let tags = {
 const defaultMenu = {
 	before: `
 	Halo, %name
-	Uptime: %uptime (%muptime)
 	%readmore`.trimStart(),
 	header: '*%category*',
+	uptime: '*%uptime* (%muptime)',
 	body: '• %cmd',
 	footer: '',
 	after: ``,
@@ -51,6 +51,7 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 	for (let plugin of help) if (plugin && 'tags' in plugin) for (let tag of plugin.tags) if (!(tag in tags) && tag) tags[tag] = tag
 		let _text = [
 			defaultMenu.before,
+			defaultMenu.uptime,
 			...Object.keys(tags).map(tag => {
 				return defaultMenu.header.replace(/%category/g, tags[tag]) + '\n' + [
 					...help.filter(menu => menu.tags && menu.tags.includes(tag) && menu.help).map(menu => {
