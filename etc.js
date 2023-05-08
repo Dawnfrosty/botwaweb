@@ -2,7 +2,7 @@
 author: https://github.com/Ftwrr
 */
 
-const prefix = '!'
+const prefix = '.'
 const APIs = { // API Prefix
     // name: 'https://website'
 }
@@ -13,7 +13,7 @@ const opts = {
     self: true,
     //simsimi: false
 }
-const owner = '6282394415872'
+const owner = '6282297563380'
 
 const author = 'https://github.com/Ftwrr'
 
