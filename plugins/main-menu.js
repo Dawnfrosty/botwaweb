@@ -16,6 +16,7 @@ let tags = {
 const defaultMenu = {
 	before: `
 	Halo, %name
+	lihat selengkapnya untuk daftar command
 	%readmore`.trimStart(),
 	header: '*%category*',
 	uptime: '*%uptime* (%muptime)',
@@ -28,17 +29,17 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
 	const contact = await m.getContact()
 	let name = `@${contact.number}`
 	
-	let _uptime = process.uptime() * 1000
-        let _muptime
-	if (process.send) {
-          process.send('uptime')
-          _muptime = await new Promise(resolve => {
-            process.once('message', resolve)
-            setTimeout(resolve, 1000)
-          }) * 1000
-        }
-        let muptime = clockString(_muptime)
-        let uptime = clockString(_uptime)
+	let _uptime = process.uptime() * 1000;
+	let _muptime;
+	  if (process.send) {
+          process.send('uptime');
+         _muptime = await new Promise(resolve => {
+         process.once('message', resolve);
+         setTimeout(resolve, 1000);
+         }) * 1000;
+         }
+        let muptime = clockString(_muptime);
+        let uptime = clockString(_uptime);
 
 	let help = Object.values(plugins).filter(plugin => !plugin.disabled).map(plugin => {
 		return {
